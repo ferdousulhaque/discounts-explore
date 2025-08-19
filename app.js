@@ -51,10 +51,16 @@ cocoSsd.load().then(function(loadedModel) {
 
 // 3. Initialize the camera feed
 const initCamera = () => {
+    // Constraints to request the back camera
+    const constraints = {
+        video: {
+            facingMode: {
+                exact: "environment" // 'environment' is for the back camera
+            }
+        }
+    };
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({
-            video: true
-        }).then(stream => {
+        navigator.mediaDevices.getUserMedia(constraints).then(stream => {
             video.srcObject = stream;
             video.addEventListener('loadeddata', () => {
                 // Get initial video dimensions
