@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Object Detector</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="camera-container">
+        <video id="webcam" autoplay playsinline></video>
+        <canvas id="canvas"></canvas>
+        <button id="capture-btn" disabled></button>
+        <div id="overlay">
+            <div id="results">
+                <h2>DETECTED OBJECT: <span id="object-name">...</span></h2>
+            </div>
+            <section id="store-carousel" class="splide" aria-label="Related Stores">
+                <h2>Related Stores & Offers</h2>
+                <div class="splide__track">
+                      <ul class="splide__list">
+                          </ul>
+                </div>
+            </section>
+            <button id="close-overlay">Close Offers</button>
+        </div>
+        <p id="loading-message">Loading model...</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

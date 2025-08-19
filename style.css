@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #000; /* Fallback if camera isn't active */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#camera-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#webcam, #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure video fills the screen without distortion */
+    z-index: 1;
+}
+
+#canvas {
+    z-index: 2; /* On top of the video */
+}
+
+#capture-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#capture-btn:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#capture-btn:disabled {
+    background-color: rgba(150, 150, 150, 0.7);
+    cursor: not-allowed;
+}
+
+#capture-btn:disabled:after {
+    background-color: rgba(100, 100, 100, 0.7);
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 4;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#results {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#results h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#object-name {
+    color: #e67e22;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#store-carousel {
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+#store-carousel h2 {
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.splide__slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+#close-overlay {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #555;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#loading-message {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    z-index: 5;
+}
