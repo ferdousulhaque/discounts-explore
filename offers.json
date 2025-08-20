@@ -52,7 +52,7 @@
             "thumb_image": [
                 "https://cdn01da.grameenphone.com/sites/default/files/2025-07/Web-1060x764_1.jpg"
             ],
-            "tags": ["hair", "nail", "foot"]
+            "tags": ["hair", "nail", "foot", "man", "woman"]
         },
         {
             "nid": "12525",
@@ -1814,7 +1814,8 @@
             "teaser": "Up to15% discount",
             "thumb_image": [
                 "https://cdn01da.grameenphone.com/sites/default/files/2024-11/1060x764_1.jpg"
-            ]
+            ],
+            "tags": ["cell phone", "mobile", "laptop", "mouse", "monitor"]
         },
         {
             "nid": "12031",
@@ -1831,7 +1832,8 @@
             "teaser": "20% discount",
             "thumb_image": [
                 "https://cdn01da.grameenphone.com/sites/default/files/2024-11/Extreme-Racing-1060x764.jpg"
-            ]
+            ],
+            "tags": ["car"]
         },
         {
             "nid": "12030",
@@ -1882,7 +1884,8 @@
             "teaser": "Up to 10% discount",
             "thumb_image": [
                 "https://cdn01da.grameenphone.com/sites/default/files/2025-02/romoni-1060x764.jpg"
-            ]
+            ],
+            "tags": ["woman", "hair"]
         },
         {
             "nid": "11940",
@@ -1950,7 +1953,8 @@
             "teaser": "Special Offer",
             "thumb_image": [
                 "https://cdn01da.grameenphone.com/sites/default/files/2024-09/Puja-Footwear-1060x764.jpg"
-            ]
+            ],
+            "tags": ["foot", "shoe"]
         },
         {
             "nid": "11834",
@@ -2001,7 +2005,8 @@
             "teaser": "20% discount ",
             "thumb_image": [
                 "https://cdn01da.grameenphone.com/sites/default/files/2024-09/capawcino_Tile_Image.jpg"
-            ]
+            ],
+            "tags": ["cup", "coffee"]
         },
         {
             "nid": "11791",
@@ -2035,7 +2040,8 @@
             "teaser": "Upto 15% Discount! ",
             "thumb_image": [
                 "https://cdn01da.grameenphone.com/sites/default/files/2024-09/Combined-Furniture-Thumb Image.jpg"
-            ]
+            ],
+            "tags": ["chair"]
         },
         {
             "nid": "11727",
