@@ -54,9 +54,7 @@ const initCamera = () => {
     // Constraints to request the back camera
     const constraints = {
         video: {
-            facingMode: {
-                exact: "environment" // 'environment' is for the back camera
-            }
+            facingMode: ["environment", "user"]
         }
     };
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
