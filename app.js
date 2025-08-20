@@ -7,26 +7,32 @@ const captureBtn = document.getElementById('capture-btn');
 const overlay = document.getElementById('overlay');
 const closeOverlayBtn = document.getElementById('close-overlay');
 
-// --- Mock Store Database ---
-// (This remains the same)
-const mockStoreDatabase = {
-    'person': [{
-        img: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDE0fHxjbG90aGluZyUyMHN0b3JlfGVufDB8fHx8MTY3ODg4NjM0OA&ixlib=rb-4.0.3&q=80&w=400',
-        alt: 'Clothing store'
-    }, ],
-    'bottle': [{
-        img: 'https://images.unsplash.com/photo-1559825481-12a05cc00344?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fHN1cGVybWFya2V0fGVufDB8fHx8MTY3ODk0NDUwMA&ixlib=rb-4.0.3&q=80&w=400',
-        alt: 'Supermarket aisle'
-    }, ],
-    'cup': [{
-        img: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGNvZmZlZSUyMHNob3B8ZW58MHx8fHwxNjc4OTQ0NTMw&ixlib=rb-4.0.3&q=80&w=400',
-        alt: 'Coffee shop'
-    }, ],
-    'cell phone': [{
-        img: 'https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGVsZWN0cm9uaWNzJTIwc3RvcmV8ZW58MHx8fHwxNjc4OTQ0NTU1&ixlib=rb-4.0.3&q=80&w=400',
-        alt: 'Electronics store'
-    }, ]
-};
+// --- Dynamic Store Database from offers.json ---
+let mockStoreDatabase = {};
+
+// Load and process offers data
+fetch('offers.json')
+    .then(response => response.json())
+    .then(offersData => {
+        // Process each offer
+        offersData.data.forEach(offer => {
+            if (offer.tags && offer.thumb_image && offer.thumb_image.length > 0) {
+                // Create entry for each tag
+                offer.tags.forEach(tag => {
+                    if (!mockStoreDatabase[tag]) {
+                        mockStoreDatabase[tag] = [];
+                    }
+                    
+                    // Add offer to corresponding tag array
+                    mockStoreDatabase[tag].push({
+                        img: offer.thumb_image[0],
+                        alt: `${offer.title} - ${offer.teaser || ''}`
+                    });
+                });
+            }
+        });
+    })
+    .catch(error => console.error('Error loading offers:', error));
 
 let model = undefined;
 let splide = new Splide('#store-carousel', {
