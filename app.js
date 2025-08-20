@@ -75,6 +75,8 @@ captureBtn.addEventListener('click', captureAndDetect);
 // 5. Event Listener for closing the overlay
 closeOverlayBtn.addEventListener('click', () => {
     overlay.style.display = 'none';
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
     video.play(); // Resume the video
 });
 
