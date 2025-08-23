@@ -99,8 +99,9 @@ body {
 }
 
 #store-carousel {
-    width: 90%;
+    width: 100%;
     margin-bottom: 30px;
+    padding: 0 10px;
 }
 
 #store-carousel h2 {
@@ -109,11 +110,19 @@ body {
     margin-bottom: 15px;
 }
 
+.splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
 .splide__slide img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    max-height: 40vh;
+    border-radius: 12px;
     object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #close-overlay {

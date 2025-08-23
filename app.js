@@ -23,10 +23,12 @@ fetch('offers.json')
                         mockStoreDatabase[tag] = [];
                     }
                     
+                    baseUrl = "https://grameenphone.com"
                     // Add offer to corresponding tag array
                     mockStoreDatabase[tag].push({
                         img: offer.thumb_image[0],
-                        alt: `${offer.title} - ${offer.teaser || ''}`
+                        alt: `${offer.title} - ${offer.teaser || ''}`,
+                        href: baseUrl + offer.path
                     });
                 });
             }
@@ -37,9 +39,16 @@ fetch('offers.json')
 let model = undefined;
 let splide = new Splide('#store-carousel', {
     type: 'loop',
-    perPage: 3,
+    perPage: 1,
     gap: '1rem',
     autoplay: true,
+    padding: { left: '1rem', right: '1rem' },
+    breakpoints: {
+        640: {
+            perPage: 1,
+            padding: { left: '1rem', right: '1rem' }
+        }
+    }
 }).mount();
 
 let isDetecting = false; // Flag to control detection
@@ -101,6 +110,10 @@ function captureAndDetect() {
             const detectedObject = predictions.slice().sort((a, b) => b.score - a.score)[0].class; // Get the most confident detection
             objectNameSpan.textContent = detectedObject;
             updateStoreCarousel(detectedObject);
+            // mock_object = "cup";
+            // objectNameSpan.textContent = mock_object;
+            // updateStoreCarousel(mock_object);
+            // 
         } else {
             objectNameSpan.textContent = "Nothing Detected";
             updateStoreCarousel(null); // Clear carousel if nothing found
@@ -141,7 +154,7 @@ const updateStoreCarousel = (objectName) => {
 
     if (stores.length > 0) {
         const slides = stores.map(store => {
-            return `<li class="splide__slide"><img src="${store.img}" alt="${store.alt}"></li>`;
+            return `<li class="splide__slide"><a href="${store.href}"><img src="${store.img}" alt="${store.alt}"></a></li>`;
         });
         splide.add(slides);
     } else {
