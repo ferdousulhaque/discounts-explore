@@ -108,11 +108,11 @@ function captureAndDetect() {
         // Update UI with the top prediction
         if (predictions.length > 0) {
             const detectedObject = predictions.slice().sort((a, b) => b.score - a.score)[0].class; // Get the most confident detection
-            // objectNameSpan.textContent = detectedObject;
-            // updateStoreCarousel(detectedObject);
-            mock_object = "cup";
-            objectNameSpan.textContent = mock_object;
-            updateStoreCarousel(mock_object);
+            objectNameSpan.textContent = detectedObject;
+            updateStoreCarousel(detectedObject);
+            // mock_object = "cup";
+            // objectNameSpan.textContent = mock_object;
+            // updateStoreCarousel(mock_object);
             // 
         } else {
             objectNameSpan.textContent = "Nothing Detected";
