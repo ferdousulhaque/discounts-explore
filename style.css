@@ -4,6 +4,15 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #000; /* Fallback if camera isn't active */
     color: #fff;
+
+.slide-description {
+    margin: 8px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    padding: 0 10px;
+    overflow-wrap: break-word;
+}
     display: flex;
     justify-content: center;
     align-items: center;

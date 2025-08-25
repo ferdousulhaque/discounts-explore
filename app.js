@@ -108,11 +108,11 @@ function captureAndDetect() {
         // Update UI with the top prediction
         if (predictions.length > 0) {
             const detectedObject = predictions.slice().sort((a, b) => b.score - a.score)[0].class; // Get the most confident detection
-            objectNameSpan.textContent = detectedObject;
-            updateStoreCarousel(detectedObject);
-            // mock_object = "cup";
-            // objectNameSpan.textContent = mock_object;
-            // updateStoreCarousel(mock_object);
+            // objectNameSpan.textContent = detectedObject;
+            // updateStoreCarousel(detectedObject);
+            mock_object = "cup";
+            objectNameSpan.textContent = mock_object;
+            updateStoreCarousel(mock_object);
             // 
         } else {
             objectNameSpan.textContent = "Nothing Detected";
@@ -154,7 +154,12 @@ const updateStoreCarousel = (objectName) => {
 
     if (stores.length > 0) {
         const slides = stores.map(store => {
-            return `<li class="splide__slide"><a href="${store.href}"><img src="${store.img}" alt="${store.alt}"></a></li>`;
+            return `<li class="splide__slide">
+                <a href="${store.href}">
+                    <img src="${store.img}" alt="${store.alt}">
+                    <p class="slide-description">${store.alt}</p>
+                </a>
+            </li>`;
         });
         splide.add(slides);
     } else {
